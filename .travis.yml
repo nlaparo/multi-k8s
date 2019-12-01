@@ -17,7 +17,7 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t nlaparo/react-test -f ./client/Dockerfile.dev ./client
 script:
-  - docker run -e CI=true nlaparo/docker-react npm run test
+  - docker run nlaparo/react-test npm test -- --coverage
 
 deploy:
   provider: script
